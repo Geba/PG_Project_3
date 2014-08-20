@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1408560390 source:c:\teste\pg_3\main.c
+	<windows.h>
+	<gl/glut.h>
+
+1408560390 source:c:\users\geeo\documents\github\pg_project_3\pg_3\main.c
+	<windows.h>
+	<gl/glut.h>
+
