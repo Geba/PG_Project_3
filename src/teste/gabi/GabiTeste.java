@@ -32,7 +32,7 @@ public class GabiTeste implements GLEventListener {
         });
         canvas.addGLEventListener(new GabiTeste());//Mesmo nome da classe
         FPSAnimator animator = new FPSAnimator(canvas, 60);
-        animator.add(canvas);
+       // animator.add(canvas);
         animator.start();
     }
 
