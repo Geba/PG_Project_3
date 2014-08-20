@@ -73,5 +73,14 @@ public class GebaTestte implements GLEventListener {
         gl.glColor3f(0, 0, 1);
         gl.glVertex2d(s, -s);
         gl.glEnd();
+        
+        
+        gl.glBegin(gl.GL_LINE_LOOP);
+        gl.glColor3f(1, 0, 0);
+        gl.glVertex2d(.5, .5);
+        gl.glVertex2d(-.5, .5);
+        gl.glVertex2d(-.5, -.5);
+        gl.glVertex2d(.5, -.5);
+        gl.glEnd();
     }
 }
