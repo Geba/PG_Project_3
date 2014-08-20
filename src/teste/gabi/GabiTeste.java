@@ -12,17 +12,25 @@ import com.jogamp.opengl.util.*;
 
 public class GabiTeste implements GLEventListener {
 
-    private double theta = 0;
-    private double s = 0;
-    private double c = 0;
+	//points matrix that will represent our house map
+    int[][] plantaBaixa = {
+    		{50, 50},
+    		{50, 0},
+    		{0,0},
+    		{0, 50}
+    		
+ 		//{},
+    };
+    
 
     public static void main(String[] args) {
         GLProfile glp = GLProfile.getDefault();
         GLCapabilities caps = new GLCapabilities(glp);
         GLCanvas canvas = new GLCanvas(caps);
+        
 
-        Frame frame = new Frame("AWT Window Test");
-        frame.setSize(300, 300);
+        Frame frame = new Frame("Home Sweet Home");
+        frame.setSize(800, 600);
         frame.add(canvas);
         frame.setVisible(true);
         frame.addWindowListener(new WindowAdapter() {
@@ -34,12 +42,15 @@ public class GabiTeste implements GLEventListener {
         FPSAnimator animator = new FPSAnimator(canvas, 60);
        // animator.add(canvas);
         animator.start();
+        
+       
+
     }
 
     @Override
     public void display(GLAutoDrawable drawable) {
         update();
-        render(drawable);
+        createApt(drawable);
     }
 
     @Override
@@ -55,23 +66,27 @@ public class GabiTeste implements GLEventListener {
     }
 
     private void update() {
-        theta += 0.01;
-        s = Math.sin(theta);
-        c = Math.cos(theta);
+        //theta += 0.01;
+        //s = Math.sin(theta);
+        //c = Math.cos(theta);
         //executada a cada att de tela
     }
 
-    private void render(GLAutoDrawable drawable) {
+    private void createApt(GLAutoDrawable drawable) {
         GL2 gl = drawable.getGL().getGL2();
         gl.glClear(GL.GL_COLOR_BUFFER_BIT);
         // draw a triangle filling the window
-        gl.glBegin(GL.GL_TRIANGLES);
+        gl.glBegin(gl.GL_LINE_LOOP);
         gl.glColor3f(1, 0, 0);
-        gl.glVertex2d(-c, -c);
-        gl.glColor3f(0, 1, 0);
-        gl.glVertex2d(0, c);
-        gl.glColor3f(0, 0, 1);
-        gl.glVertex2d(s, -s);
+        gl.glVertex2i(25, 25);
+        gl.glVertex2i(-25, 25);
+        gl.glVertex2i(-25, -25);
+        gl.glVertex2i(25, -25);
         gl.glEnd();
     }
+
+//QUERO SETAR O TAMANHO DA JANELA 
+        //glutInitWindowSize(400,350); 
+
+
 }
